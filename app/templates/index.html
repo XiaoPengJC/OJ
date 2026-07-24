@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>在线评测系统</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+<header class="site-header">
+    <div>
+        <h1>在线评测系统</h1>
+        <p class="site-subtitle">Python 程序设计在线评测平台</p>
+    </div>
+    <div class="user-area">
+        <span id="current-user">未登录</span>
+        <button id="logout-button" class="secondary-button" hidden>退出登录</button>
+    </div>
+</header>
+
+<main class="page-container">
+    <section id="auth-section" class="panel auth-panel">
+        <div class="tab-buttons">
+            <button id="show-login-button">登录</button>
+            <button id="show-register-button" class="secondary-button">注册</button>
+        </div>
+
+        <div id="login-view">
+            <h2>用户登录</h2>
+            <form id="login-form">
+                <label>用户名
+                    <input id="login-username" type="text" autocomplete="username" required>
+                </label>
+                <label>密码
+                    <input id="login-password" type="password" autocomplete="current-password" required>
+                </label>
+                <button type="submit">登录</button>
+            </form>
+        </div>
+
+        <div id="register-view" hidden>
+            <h2>学生注册</h2>
+            <form id="register-form">
+                <label>用户名
+                    <input id="register-username" type="text" minlength="3" maxlength="32" required>
+                </label>
+                <label>密码
+                    <input id="register-password" type="password" minlength="8" required>
+                </label>
+                <label>确认密码
+                    <input id="register-password-confirm" type="password" minlength="8" required>
+                </label>
+                <button type="submit">注册并登录</button>
+            </form>
+        </div>
+        <p id="auth-message" class="message"></p>
+    </section>
+
+    <section id="dashboard-section" class="panel" hidden>
+        <nav id="navigation" class="navigation-buttons" aria-label="主导航">
+            <button id="nav-problems">题目列表</button>
+            <button id="nav-submissions" class="secondary-button">提交记录</button>
+            <button id="nav-users" class="secondary-button admin-only" hidden>用户管理</button>
+            <button id="nav-audit" class="secondary-button admin-only" hidden>审计日志</button>
+            <button id="nav-backups" class="secondary-button admin-only" hidden>备份恢复</button>
+        </nav>
+        <div class="page-heading">
+            <h2 id="dashboard-title">题目列表</h2>
+            <span id="role-hint" class="muted"></span>
+        </div>
+        <div id="content-area"></div>
+    </section>
+</main>
+
+<script type="module" src="/static/js/app.js"></script>
+</body>
+</html>
